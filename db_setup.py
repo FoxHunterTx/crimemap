@@ -1,7 +1,7 @@
 import pymysql
 import dbconfig
 
-connection=pymysql.connect(host='10.10.10.10',
+connection=pymysql.connect(host='35.193.66.163',
         user=dbconfig.db_user,
         passwd=dbconfig.db_password)
 
