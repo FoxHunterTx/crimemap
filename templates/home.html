@@ -13,7 +13,18 @@
      map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
      google.maps.event.addListener(map,'click',function(event) {
          placeMarker(event.latLng); });
+     placelostpet({{lostpetsdata|safe}});
      }
+
+   function placelostpet(lostpetsdata) {
+     for(i=0;i<lostpetsdata.length;i++) {
+	     lostpet = new google.maps.Marker( {
+		     position: new google.maps.LatLng(lostpetsdata[i].latitude,lostpetsdata[i].longitude),
+		     map: map,
+		     title: lostpetsdata[i].date+"\n"+lostpetsdata[i].category+"\n"+lostpetsdata[i].description}
+       );
+     }
+   }
 
    function placeMarker(location) {
         if (marker) {
